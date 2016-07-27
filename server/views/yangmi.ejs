@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="css/index.css?20151204">
     <script>
         // 获取sign值
-        <%if (baseRedirectUri) {%>
-        window.location.href = '<%-baseRedirectUri%>';
-        <%}else {%>
         window['openId'] = '<%=openId%>';
-        <%}%>
     </script>
     <script>
         var _hmt = _hmt || [];
@@ -28,11 +24,17 @@
 <body>
 openid = <%=openId%><br/>
 baseRedirectUri = <%=baseRedirectUri%>
+<%if (userInfo){
+   with(userInfo) {
+%>
 nickname = <%=nickname%>
 unionId = <%=unionId%>
 headImgUrl = <%=headImgUrl%><a href="<%=headImgUrl%>"><img src="<%=headImgUrl%>"></a>
 title = <%=title%>
 desc = <%=desc%>
+<%}
+}%>
+
 <!--<div class="main">
     <ul class="wp">
         <li class="wp-1">

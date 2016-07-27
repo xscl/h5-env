@@ -17,9 +17,9 @@ module.exports = {
 		var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
 		var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + account['wx_site_id'] + '&redirect_uri=' + base_redirect_uri
 			+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-		router.get('/', this.indexTest(appId, baseRedirectUri));
+		router.get('/', this.indexUserInfo(appId, baseRedirectUri));
 	},
-	indexTest: function (appId, baseRedirectUri) {
+	indexUserInfo: function (appId, baseRedirectUri) {
 		var ejs = appId + '.ejs';
 		return function (req, res) {
 			var code = req.query.code;
@@ -45,12 +45,13 @@ module.exports = {
 							}).then(function(userObj) {
 								res.render(ejs, {
 									openId: openId,
-									baseRedirectUri: false,
-									'nickname': userObj.nickname,
-									'unionId': userObj.unionid,
-									'headImgUrl': userObj.headimgurl,
-									'title': userObj['title'] || '',
-									'desc': userObj['desc'] || ''
+									userInfo: {
+										nickname: userObj.nickname,
+										unionId: userObj.unionid,
+										headImgUrl: userObj.headimgurl,
+										title: userObj['title'] || '',
+										desc: userObj['desc'] || ''
+									}
 								});
 							});
 						}
@@ -68,7 +69,7 @@ module.exports = {
 	_index: function (appId) {
 		var ejs = appId + '.ejs';
 		return function (req, res) {
-			res.render(ejs, {openId: 'openId', baseRedirectUri: false});
+			res.render(ejs, {openId: 'openId'});
 		}
 	},
 	fetchCDK: function (appId) {
@@ -109,7 +110,7 @@ module.exports = {
 				}).then(function(json) {
 					var openId = json.openid;
 					if (openId) {
-						res.render(ejs, {openId: openId, baseRedirectUri: false});
+						res.render(ejs, {openId: openId});
 					}
 					else if (req.cookies.wx) {
 						res.redirect(baseRedirectUri);
