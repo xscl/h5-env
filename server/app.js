@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var dzs = require('./routes/dzs');
-var yangmi = require('./routes/yangmi');
+//var yangmi = require('./routes/yangmi');
 var app = express();
 
 // view engine setup
