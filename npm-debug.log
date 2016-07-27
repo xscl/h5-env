@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/root/software/node-v4.4.3-linux-x64/bin/node',
+1 verbose cli   '/root/software/node-v4.4.3-linux-x64/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.3
+4 verbose stack SyntaxError: Unexpected token ILLEGAL
+4 verbose stack     at exports.runInThisContext (vm.js:53:16)
+4 verbose stack     at Module._compile (module.js:373:25)
+4 verbose stack     at Object.Module._extensions..js (module.js:416:10)
+4 verbose stack     at Module.load (module.js:343:32)
+4 verbose stack     at Function.Module._load (module.js:300:12)
+4 verbose stack     at Module.require (module.js:353:17)
+4 verbose stack     at require (internal/module.js:12:17)
+4 verbose stack     at /root/software/node-v4.4.3-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/index.js:73:20
+4 verbose stack     at Array.forEach (native)
+4 verbose stack     at CachingRegistryClient.RegClient (/root/software/node-v4.4.3-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/index.js:51:42)
+5 verbose cwd /root/h5-env
+6 error Linux 2.6.32-573.22.1.el6.x86_64
+7 error argv "/root/software/node-v4.4.3-linux-x64/bin/node" "/root/software/node-v4.4.3-linux-x64/bin/npm" "install"
+8 error node v4.4.3
+9 error npm  v2.15.1
+10 error Unexpected token ILLEGAL
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
