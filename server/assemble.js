@@ -29,20 +29,37 @@ module.exports = {
 			else {
 				var accessTokenUrl = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' + account['wx_site_id']
 					+ '&secret=' + account['wx_site_secret'] + '&code=' + code + '&grant_type=authorization_code';
-				fetch(accessTokenUrl).then(function(res2) {
-					return res2.json();
-				}).then(function(json) {
-					var fs = require('fs');
-					fs.writeFileSync('res.json', JSON.stringify(json));
-					var openId = json.openid;
-					if (openId) {
-						res.render(ejs, {openId: openId, baseRedirectUri: false});
-					}
-					else if (req.cookies.wx) {
+				fetch(accessTokenUrl).then(function(openIdRet) {
+					return openIdRet.json();
+				}).then(function(openIdObj) {
+					if (!openIdObj['access_token']) {
 						res.redirect(baseRedirectUri);
 					}
 					else {
-						res.render('empty.ejs');
+						var openId = openIdObj['openid'];
+						if (openId) {
+							// 获取userinfo
+							var userUri = 'https://api.weixin.qq.com/sns/userinfo?access_token=' + openIdObj['access_token'] + '&openid=' + openId + '&lang=zh_CN';
+							fetch(userUri).then(function(userRet) {
+								return userRet.json();
+							}).then(function(userObj) {
+								res.render(ejs, {
+									openId: openId,
+									baseRedirectUri: false,
+									'nickname': userObj.nickname,
+									'unionId': userObj.unionid,
+									'headImgUrl': userObj.headimgurl,
+									'title': userObj['title'] || '',
+									'desc': userObj['desc'] || ''
+								});
+							});
+						}
+						else if (req.cookies.wx) {
+							res.redirect(baseRedirectUri);
+						}
+						else {
+							res.render('empty.ejs');
+						}
 					}
 				});
 			}
