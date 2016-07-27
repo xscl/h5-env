@@ -6,11 +6,12 @@ var account = {
 };
 var appid = account['wx_site_id'];
 var base_redirect_uri = false;
-var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + base_redirect_uri
-	+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+var baseRedirectUri = false;
 module.exports = {
 	assemble: function (router, appId) {
 		base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
+		baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + base_redirect_uri
+		+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 		router.get('/', this.index(appId));
 		router.get('/test', this._index(appId));
 		router.get('/fetchCDK', this.fetchCDK(appId));
