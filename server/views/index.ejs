@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>解锁暑假一起玩</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        // 获取sign值
+        <%if (baseRedirectUri) {%>
+        window.location.href = '<%-baseRedirectUri%>';
+        <%}else {%>
+        window['openId'] = '<%=openId%>';
+        <%}%>
+    </script>
+    <!-- Add your keywords and description here for SEO. -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Uncomment this if you need apple touch icon. -->
+    <!--
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+    -->
+
+    <!-- Don't delete this. It's needed for development workflow. -->
+    <link rel="stylesheet" href="http://static.leanote.top/chamber12/stylesheets/bundle.css">
+</head>
+
+<body>
+<div class="loading-overlay">
+    <div class="col">
+        <div class="projector">
+            <img src="http://static.leanote.top/chamber12/images/loading/projector.png" class="machine">
+            <img src="http://static.leanote.top/chamber12/images/loading/light.png" class="light my-animated infinite flash">
+            <p class="progress">0%</p>
+        </div>
+        <img src="http://static.leanote.top/chamber12/images/loading/word.png" class="word">
+    </div>
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1 swiper-no-swiping">
+            <div id="wrapper">
+                <div id="scroller">
+                    <img src="http://static.leanote.top/chamber12/images/bj.jpg" class="scene">
+                    <div class="right poster" data-right="poster"></div>
+                    <div class="right tel" data-right="tel"></div>
+                    <div class="right mobile" data-right="mobile"></div>
+                    <img class="right lamp my-animated infinite flash" data-right="lamp" src="http://static.leanote.top/chamber12/images/clue/lamp/light.png">
+                    <div class="right lamp" data-right="lamp"></div>
+                    <div class="wrong pistol" data-wrong="pistol"></div>
+                    <div class="wrong slingshot" data-wrong="slingshot"></div>
+                    <div class="wrong homework" data-wrong="homework"></div>
+                    <div class="wrong cartoon" data-wrong="cartoon"></div>
+                </div>
+                <div class="exist"><img src="http://static.leanote.top/chamber12/images/exist.png" class="animated infinite flash" data-active="no"></div>
+            </div>
+        </div>
+        <div class="swiper-slide slide-2 swiper-no-swiping">
+            <div class="guo" style="background-image: url(http://static.leanote.top/chamber12/images/float/pbj.jpg)">
+                <div class="p">
+                    <img src="http://static.leanote.top/chamber12/images/float/p.png" class="p-p">
+                    <input type="text" class="password" maxlength="3"/>
+                    <div class="ok"></div>
+                    <p class="try">再试一次!</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide slide-3 swiper-no-swiping">
+            <img src="http://static.leanote.top/chamber12/images/float/floatbj.jpg" class="bj">
+            <div class="bj-div">
+                <img src="http://static.leanote.top/chamber12/images/float/float2.png" class="bj">
+                <div class="again"></div>
+                <a href="http://age.qq.com/weixin/html/cfm_download.html?ADTAG=gong.zhong.hao.H5" target="_blank" class="unlock"></a>
+                <!--<div class="together"></div>-->
+                <input class="key" type="text"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header"><img src="http://static.leanote.top/chamber12/images/header.png"></div>
+<div class="btn-music">
+    <!--<i class="icon-note"></i>-->
+</div>
+<div class="mask"></div>
+<div class="tip-card card">
+    <img src="http://static.leanote.top/chamber12/images/des.png" class="des">
+    <img src="http://static.leanote.top/chamber12/images/gesture.png" class="gesture">
+</div>
+<div class="code-card card">
+    <img src="http://static.leanote.top/chamber12/images/code.jpg" class="code">
+    <div class="word">
+        <p>长按识别二维码</p>
+        <p>关注穿越火线官方公众号</p>
+        <p>赢取超多礼包福利!</p>
+    </div>
+</div>
+<div class="wrong-card card">
+    <img class="fix-tip" src="http://static.leanote.top/chamber12/images/tool/disSecrete.png">
+    <div class="tool-slot"></div>
+    <div class="word-slot"></div>
+    <p class="tip-slot"><img src="http://static.leanote.top/chamber12/images/clue/progress.png"><span></span></p>
+</div>
+
+<div class="right-card card">
+    <img class="fix-tip" src="http://static.leanote.top/chamber12/images/clue/clueTip.png">
+    <div class="clue-tool-slot">
+        <div class="clue-slot"></div>
+        <div class="tool-slot"></div>
+    </div>
+    <div class="word-password-slot">
+        <div class="word-slot"></div>
+        <div class="password-slot"></div>
+    </div>
+    <p class="tip-slot"><img src="http://static.leanote.top/chamber12/images/clue/progress.png"><span></span></p>
+</div>
+<img src="http://static.leanote.top/chamber12/images/share.png" class="share">
+<div class="landscape-mask">
+    <div>竖屏观看更合适哦</div>
+</div>
+<audio loop preload="auto">
+    <source src="http://static.leanote.top/chamber12/audios/bg.mp3" type="audio/mpeg">
+</audio>
+<audio loop preload="auto">
+    <source src="http://static.leanote.top/chamber12/audios/tel.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Don't delete this. It's needed for development workflow. -->
+
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259932276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1259932276' type='text/javascript'%3E%3C/script%3E"));
+    //声明_czc对象:
+     window._czc = _czc || [];
+    //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+    window._czc.push(["_setAccount", "cnzz_stat_icon_1259932276"]);
+</script>
+<!--<script src="http://static.leanote.top/chamber12/javascripts/bundle.js"></script>-->
+<script src="http://static.leanote.top/chamber12/javascripts/bundle.js"></script>
+</body>
+</html>
