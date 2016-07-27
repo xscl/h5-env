@@ -10,6 +10,9 @@
     <script>
         // 获取sign值
         window['openId'] = '<%=openId%>';
+        <%if (userInfo) {%>
+        window['userInfo'] = <%=JSON.stringify(userInfo, false, 4)%>;
+        <%}%>
     </script>
     <script>
         var _hmt = _hmt || [];
@@ -22,7 +25,7 @@
     </script>
 </head>
 <body>
-openid = <%=openId%><br/>
+<!--openid = <%=openId%><br/>
 <%if (userInfo){
    with(userInfo) {
 %>
@@ -32,9 +35,8 @@ headImgUrl = <%=headImgUrl%><a href="<%=headImgUrl%>"><img src="<%=headImgUrl%>"
 title = <%=title%>
 desc = <%=desc%>
 <%}
-}%>
-
-<!--<div class="main">
+}%>-->
+<div class="main">
     <ul class="wp">
         <li class="wp-1">
             <div class="time">
@@ -199,7 +201,7 @@ desc = <%=desc%>
             </div>
             <div class="msg3 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="jt">
                     <img src="images/jt.png"></div>
                 <div class="cont">
@@ -255,7 +257,7 @@ desc = <%=desc%>
             </div>
             <div class="msg2 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="jt">
                     <img src="images/jt.png"></div>
                 <div class="cont">
@@ -302,7 +304,7 @@ desc = <%=desc%>
             </div>
             <div class="msg2 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="jt">
                     <img src="images/jt.png"></div>
                 <div class="cont">
@@ -344,7 +346,7 @@ desc = <%=desc%>
             </div>
             <div class="msg2 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="jt">
                     <img src="images/jt.png"></div>
                 <div class="cont">
@@ -372,7 +374,7 @@ desc = <%=desc%>
             </div>
             <div class="msg5 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="se">
                     <img src="images/se.png"></div>
             </div>
@@ -423,7 +425,7 @@ desc = <%=desc%>
             </div>
             <div class="msg4 mymsg">
                 <div class="head">
-                    <img src="images/headimg.jpg"></div>
+                    <img src="<%=headImgUrl%>"></div>
                 <div class="jt">
                     <img src="images/jt.png"></div>
                 <div class="cont">
@@ -466,6 +468,6 @@ desc = <%=desc%>
 </div>
 <script src="http://static.udache.com/gulfstream/webapp/js/didi.new.js"></script>
 <script src="http://static.udache.com/gulfstream/webapp/modules/resources/js/queryloader2.min.js"></script>
-<script src="js/index.js?20151204"></script>-->
+<script src="js/index.js?20151204"></script>
 </body>
 </html>
