@@ -93,9 +93,13 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
         gulp dev --app  目录名称
 
     例如：
+
         gulp dev --app chamber //密室h5
+
         gulp dev --app dzs     //斗战神h5
+
         gulp dev --app app     //app为默认demo
+
 
     稍等片刻，浏览器窗口会自动打开并指向地址`localhost:3000`，当你修改app/src下的任意文件时，浏览器页面会自动刷新。
 
@@ -109,8 +113,11 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
 
     例如：
         gulp prod --app chamber
+
         gulp prod --app dzs
+
         gulp prod --app app
+
 
     该任务将在[目录名称]/dist文件夹中生成两个新文件bundle.min.css和bundle.min.js，并删除原有的bundle.css和bundle.js。
     
