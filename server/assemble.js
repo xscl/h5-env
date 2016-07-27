@@ -4,14 +4,12 @@ var account = {
 	'wx_site_id': 'wx888048ccfc4491c8',
 	'wx_site_secret': '1565883b49446084b16ab295f5830984'
 };
-var base_redirect_uri = false;
-var baseRedirectUri = false;
 module.exports = {
 	assemble: function (router, appId) {
-		base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
-		baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + account['wx_site_id'] + '&redirect_uri=' + base_redirect_uri
-		+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-		router.get('/', this.index(appId));
+		var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
+		var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + account['wx_site_id'] + '&redirect_uri=' + base_redirect_uri
+			+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+		router.get('/', this.index(appId, baseRedirectUri));
 		router.get('/test', this._index(appId));
 		router.get('/fetchCDK', this.fetchCDK(appId));
 	},
@@ -44,7 +42,7 @@ module.exports = {
 			}
 		}
 	},
-	index: function (appId) {
+	index: function (appId, baseRedirectUri) {
 		var ejs = appId + '.ejs';
 		return function (req, res) {
 			var code = req.query.code;
