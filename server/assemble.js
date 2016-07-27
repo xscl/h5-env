@@ -13,6 +13,41 @@ module.exports = {
 		router.get('/test', this._index(appId));
 		router.get('/fetchCDK', this.fetchCDK(appId));
 	},
+	assemble2: function (router, appId) {
+		var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
+		var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + account['wx_site_id'] + '&redirect_uri=' + base_redirect_uri
+			+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+		router.get('/', this.indexTest(appId, baseRedirectUri));
+	},
+	indexTest: function (appId, baseRedirectUri) {
+		var ejs = appId + '.ejs';
+		return function (req, res) {
+			var code = req.query.code;
+			if (!code) {
+				res.redirect(baseRedirectUri);
+			}
+			else {
+				var accessTokenUrl = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' + account['wx_site_id']
+					+ '&secret=' + account['wx_site_secret'] + '&code=' + code + '&grant_type=authorization_code';
+				fetch(accessTokenUrl).then(function(res2) {
+					return res2.json();
+				}).then(function(json) {
+					var fs = require('fs');
+					fs.writeFileSync('res.json', JSON.stringify(json));
+					var openId = json.openid;
+					if (openId) {
+						res.render(ejs, {openId: openId, baseRedirectUri: false});
+					}
+					else if (req.cookies.wx) {
+						res.redirect(baseRedirectUri);
+					}
+					else {
+						res.render('empty.ejs');
+					}
+				});
+			}
+		};
+	},
 	_index: function (appId) {
 		var ejs = appId + '.ejs';
 		return function (req, res) {
@@ -47,7 +82,7 @@ module.exports = {
 		return function (req, res) {
 			var code = req.query.code;
 			if (!code) {
-				res.render(ejs, {baseRedirectUri: baseRedirectUri, openId: false});
+				res.redirect(baseRedirectUri);
 			}
 			else {
 				var accessTokenUrl = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' + account['wx_site_id']
@@ -60,7 +95,7 @@ module.exports = {
 						res.render(ejs, {openId: openId, baseRedirectUri: false});
 					}
 					else if (req.cookies.wx) {
-						res.render(ejs, {baseRedirectUri: baseRedirectUri, openId: false});
+						res.redirect(baseRedirectUri);
 					}
 					else {
 						res.render('empty.ejs');
