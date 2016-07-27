@@ -65,7 +65,7 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
 
     在控制台中运行：
 
-        git clone --depth=1 https://github.com/panteng/wechat-h5-boilerplate.git <your-project-name>
+        git clone --depth=1 https://git.coding.net/awesomeDing/h5-env.git <your-project-name>
         cd <your-project-name>
 
 2. **安装第三方包**
@@ -90,8 +90,13 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
 
     在控制台运行：
 
-        gulp dev
-        
+        gulp dev --app  目录名称
+
+    例如：
+        gulp dev --app chamber //密室h5
+        gulp dev --app dzs     //斗战神h5
+        gulp dev --app app     //app为默认demo
+
     稍等片刻，浏览器窗口会自动打开并指向地址`localhost:3000`，当你修改app/src下的任意文件时，浏览器页面会自动刷新。
 
 ## 发布流程
@@ -100,13 +105,18 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
 
    在控制台中运行：
 
-        gulp prod
+        gulp prod --app 目录名称
 
-    该任务将在app/dist文件夹中生成两个新文件bundle.min.css和bundle.min.js，并删除原有的bundle.css和bundle.js。
+    例如：
+        gulp prod --app chamber
+        gulp prod --app dzs
+        gulp prod --app app
+
+    该任务将在[目录名称]/dist文件夹中生成两个新文件bundle.min.css和bundle.min.js，并删除原有的bundle.css和bundle.js。
     
-2. 发布时，只需要将app/dist文件夹中的文件上传到服务器即可，其他文件都不是必需的。app/dist中的CSS、JS和图片文件都是经过压缩优化的。
+2. 发布时，只需要将[目录名称]/dist文件夹中的文件上传到服务器即可，其他文件都不是必需的。［目录名称]/dist中的CSS、JS和图片文件都是经过压缩优化的。
 
-## 开发指南
+## 开发指南  以app目录下demo为例，实际开发应拷贝目录app重命名为自己的项目名称，比如：newApp， 在demo的基础上进行开发，gulp dev --app newApp
 
 1. **加载动画**
 
