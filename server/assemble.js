@@ -5,11 +5,12 @@ var account = {
 	'wx_site_secret': '1565883b49446084b16ab295f5830984'
 };
 var appid = account['wx_site_id'];
-var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/dzs');
+var base_redirect_uri = false;
 var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + base_redirect_uri
 	+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 module.exports = {
 	assemble: function (router, appId) {
+		var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
 		router.get('/', this.index(appId));
 		router.get('/test', this._index(appId));
 		router.get('/fetchCDK', this.fetchCDK(appId));
