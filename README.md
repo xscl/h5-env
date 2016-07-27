@@ -123,7 +123,9 @@ Wechat-H5-Boilerplate(以下简称WHB）是一个H5动效模板，专门为微�
     
 2. 发布时，只需要将[目录名称]/dist文件夹中的文件上传到服务器即可，其他文件都不是必需的。［目录名称]/dist中的CSS、JS和图片文件都是经过压缩优化的。
 
-## 开发指南  以app目录下demo为例，实际开发应拷贝目录app重命名为自己的项目名称，比如：newApp， 在demo的基础上进行开发，gulp dev --app newApp
+## 开发指南
+
+ 以app目录下demo为例，实际开发应拷贝目录app重命名为自己的项目名称，比如：newApp， 在demo的基础上进行开发，gulp dev --app newApp
 
 1. **加载动画**
 
