@@ -10,7 +10,7 @@ var baseRedirectUri = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid
 	+ '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 module.exports = {
 	assemble: function (router, appId) {
-		var base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
+		base_redirect_uri = encodeURIComponent('http://cf.starnet-social.teakki.top/' + appId);
 		router.get('/', this.index(appId));
 		router.get('/test', this._index(appId));
 		router.get('/fetchCDK', this.fetchCDK(appId));
