@@ -1,0 +1,69 @@
+.slide-7 {
+    background: #feebc1;
+    .item-block1 {
+        top: 25px;
+        width: 100%;
+        height: 482px;
+        right: 0;
+        background: url(http://static.leanote.top/x-resource/dzs/images/7/1.jpg) no-repeat;
+        background-size: 300px 100%;
+        background-position: 10px top;
+        .item-tip1 {
+            z-index: 1;
+            position: absolute;
+            width: 225px;
+            height: 151px;
+            left: 51px;
+            top: 10px;
+            background: url(http://static.leanote.top/x-resource/dzs/images/7/2.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .item-tip2 {
+            z-index: 2;
+            position: absolute;
+            width: 191px;
+            height: 37px;
+            left: 68px;
+            top: 16px;
+            background: url(http://static.leanote.top/x-resource/dzs/images/7/4.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .item-tip3 {
+            display: none;
+            z-index: 10;
+            position: absolute;
+            width: 191px;
+            height: 37px;
+            left: 68px;
+            top: 16px;
+            background: url(http://static.leanote.top/x-resource/dzs/images/7/3.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .item-tip4 {
+            z-index: 3;
+            position: absolute;
+            width: 140px;
+            height: 40px;
+            left: 87px;
+            top: 262px;
+            background-color: transparent;
+        }
+        .item-date-input {
+            z-index: 10;
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            background-color: transparent;
+            border: 0 none;
+            left: 75px;
+            top: 206px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            font-family: 'Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+            color: #341c1c;
+        }
+    }
+}
+

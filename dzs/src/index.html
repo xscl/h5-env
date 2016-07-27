@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>斗战神</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Add your keywords and description here for SEO. -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script>
+        var lastTime = 0;
+        var prefixes = 'webkit moz ms o'.split(' '); //各浏览器前缀
+
+        var requestAnimationFrame = window.requestAnimationFrame;
+        var cancelAnimationFrame = window.cancelAnimationFrame;
+
+        var prefix;
+        //通过遍历各浏览器前缀，来得到requestAnimationFrame和cancelAnimationFrame在当前浏览器的实现形式
+        for( var i = 0; i < prefixes.length; i++ ) {
+            if ( requestAnimationFrame && cancelAnimationFrame ) {
+                break;
+            }
+            prefix = prefixes[i];
+            requestAnimationFrame = requestAnimationFrame || window[ prefix + 'RequestAnimationFrame' ];
+            cancelAnimationFrame  = cancelAnimationFrame  || window[ prefix + 'CancelAnimationFrame' ] || window[ prefix + 'CancelRequestAnimationFrame' ];
+        }
+
+        //如果当前浏览器不支持requestAnimationFrame和cancelAnimationFrame，则会退到setTimeout
+        if ( !requestAnimationFrame || !cancelAnimationFrame ) {
+            requestAnimationFrame = function( callback, element ) {
+                var currTime = new Date().getTime();
+                //为了使setTimteout的尽可能的接近每秒60帧的效果
+                var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+                var id = window.setTimeout( function() {
+                    callback( currTime + timeToCall );
+                }, timeToCall );
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+
+            cancelAnimationFrame = function( id ) {
+                window.clearTimeout( id );
+            };
+        }
+
+        // test
+        /*requestAnimationFrame = function( callback, element ) {
+            var currTime = new Date().getTime();
+            //为了使setTimteout的尽可能的接近每秒60帧的效果
+            var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+            var id = window.setTimeout( function() {
+                callback( currTime + timeToCall );
+            }, timeToCall );
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+        cancelAnimationFrame = function( id ) {
+            window.clearTimeout( id );
+        };
+*/
+        //得到兼容各浏览器的API
+        window.requestAnimationFrame = requestAnimationFrame;
+        window.cancelAnimationFrame = cancelAnimationFrame;
+    </script>
+    <link rel="shortcut icon" type="image/png" href="http://static.leanote.top/x-resource/dzs/images/share_logo.jpg"/>
+
+    <!-- Don't delete this. It's needed for development workflow. -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+
+<img src="http://static.leanote.top/x-resource/dzs/images/share_logo.jpg" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
+<img src="http://static.leanote.top/x-resource/dzs/images/loading/1.png" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
+<img src="http://static.leanote.top/x-resource/dzs/images/loading/2.png" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
+<img src="http://static.leanote.top/x-resource/dzs/images/loading/3.png" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
+
+<div class="loading-overlay">
+    <div class="loading-monkey"></div>
+    <div class="loading-banner">
+        <div class="loading-banner-inner"></div>
+    </div>
+</div>
+
+<div class="rotate-overlay">
+    请竖起手机观看～
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide slide-1">
+            <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.5s"></div>
+            </div>
+            <div class="item-block item-block2 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="1s">
+            </div>
+            <div class="item-block item-block3 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="1.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="2s"></div>
+                <div class="item-tip2"></div>
+                <div class="item-tip3 animated" data-ani-name="slideInLeft" data-ani-duration="0.3s" data-ani-delay="1.8s"></div>
+            </div>
+            <div class="item-block item-block4 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="2s">
+                
+            </div>
+            <div class="item-block item-block5 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="2.5s">
+                <div class="item-tip1"></div>
+                <div class="item-tip2 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="3.5s"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-2">
+            <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.5s"></div>
+            </div>
+            <div class="item-block item-block2 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="1s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.9s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.5s"></div>
+                <div class="item-tip3 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.7s"></div>
+                <div class="item-tip4 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.9s"></div>
+                <div class="item-tip5 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="2s"></div>
+            </div>
+            <div class="item-block item-block3 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="1.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="2s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomInDown" data-ani-duration="0.5s" data-ani-delay="2s"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-3 slide-map">
+            <div class="item-block item-block1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1"></div>
+                <!--<div class="p-item p-item-tip2">2</div>
+                <div class="p-item p-item-tip3">3</div>
+                <div class="p-item p-item-tip4">4</div>
+                <div class="p-item p-item-tip5">5</div>
+                <div class="p-item p-item-tip6">6</div>
+                <div class="p-item p-item-tip7">7</div>
+                <div class="p-item p-item-tip8">8</div>
+                <div class="p-item p-item-tip9">9</div>
+                <div class="p-item p-item-tip10">10</div>
+                <div class="p-item p-item-tip11">11</div>
+                <div class="p-item p-item-tip12">12</div>
+                <div class="p-item p-item-tip13">13</div>
+                <div class="p-item p-item-tip14">14</div>
+                <div class="p-item p-item-tip15">15</div>
+
+                <div class="p-item p-item-tip16">16</div>
+                <div class="p-item p-item-tip17">17</div>
+                <div class="p-item p-item-tip18">18</div>
+                <div class="p-item p-item-tip19">19</div>
+                <div class="p-item p-item-tip20">20</div>
+                <div class="p-item p-item-tip21">21</div>
+                <div class="p-item p-item-tip22">22</div>
+                <div class="p-item p-item-tip23">23</div>
+                <div class="p-item p-item-tip24">24</div>
+                <div class="p-item p-item-tip25">25</div>
+                <div class="p-item p-item-tip26">26</div>
+                <div class="p-item p-item-tip27">27</div>
+                <div class="p-item p-item-tip28">28</div>
+                <div class="p-item p-item-tip29">29</div>
+                <div class="p-item p-item-tip30">30</div>
+                <div class="p-item p-item-tip31">31</div>
+                <div class="p-item p-item-tip32">32</div>-->
+
+
+                <div class="btn item-btn1"></div>
+            </div>
+            <div class="btn item-mask"></div>
+            <div class="item-tip2">
+                <span class="btn item-close"></span>
+            </div>
+            <div class="item-tip3">
+                <span class="btn item-yes"></span>
+                <span class="btn item-no"></span>
+            </div>
+            <div class="item-tip4">
+                <span class="btn item-yes"></span>
+                <span class="btn item-no"></span>
+            </div>
+            <div class="item-tip5">
+                <span class="btn item-yes"></span>
+                <span class="btn item-no"></span>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-4">
+             <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s">
+                <div class="item-tip1 animated" data-ani-name="slideInLeft" data-ani-duration="8s" data-ani-delay="1.5s"></div>
+            </div>
+            <div class="item-block item-block2 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="1s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.9s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.5s"></div>
+                <div class="item-tip3 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.7s"></div>
+                <div class="item-tip4 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="2.1s"></div>
+            </div>
+            <div class="item-block item-block3 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="2.5s">
+            </div>
+            <div class="item-block item-block4 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="3s">
+                <div class="item-tip1"></div>
+            </div>
+            <div class="item-block item-block5 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="3.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomInDown" data-ani-duration="0.5s" data-ani-delay="4.5s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="4s"></div>
+                <div class="item-tip3 animated" data-ani-name="wobble" data-ani-duration="1.5s" data-ani-delay="4.4s"></div>
+                <div class="item-tip4 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="4.2s"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-5">
+            <div class="item-block item-block1 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.5s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.7s"></div>
+                <div class="item-tip3 item-eraser animated" data-ani-name="wobble" data-ani-duration="3s" data-ani-delay="0.8s"></div>
+                <div class="item-tip4"></div>
+                <div class="btn item-tip5"></div>
+            </div>
+           <!--  <div class="btn item-mask"></div>
+            <div class="btn item-award">
+                <input type="text" class="item-cdk-input" />
+                <span class="btn item-close"></span>
+            </div> -->
+        </div>
+
+        <div class="swiper-slide slide-6">
+            <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1 animated" data-ani-name="slideInRight" data-ani-duration="5s" data-ani-delay="0.5s"></div>
+            </div>
+            <div class="item-block item-block2 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="0.5s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1s"></div>
+            </div>
+            <div class="item-block item-block3 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="1s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.5s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.5s"></div>
+                <div class="item-tip3 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.7s"></div>
+                <div class="item-tip4 animated" data-ani-name="zoomInDown" data-ani-duration="0.5s" data-ani-delay="2s"></div>
+            </div>
+        </div>
+
+
+
+        <div class="swiper-slide slide-7">
+            <div class="item-block item-block1 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.2s" data-ani-delay="0s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0s"></div>
+                <div class="item-tip3 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0s"></div>
+                <div class="item-tip4 btn"></div>
+                <input type="tel" class="item-date-input" />
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-8">
+            <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1 animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s"></div>
+                <div class="item-tip2 animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.7s"></div>
+                <div class="item-tip3 animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.9s"></div>
+            </div>
+            <div class="item-block item-block2 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="1.5s">
+                
+            </div>
+            <div class="item-block item-block3 animated" data-ani-name="slideInRight" data-ani-duration="0.5s" data-ani-delay="2s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="2.5s"></div>
+                <div class="item-tip2 animated" data-ani-name="bounceIn" data-ani-duration="3s" data-ani-delay="3s"></div>
+            </div>
+
+            <div class="slide-microphone">
+                <div class="item-block item-block1 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0s">
+                    
+                </div>
+                <div class="item-block item-block2 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0.5s">
+                    <div class="btn item-wave"></div>
+                    <div class="btn item-close"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="swiper-slide slide-10">
+            <div class="item-block item-block1 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0s">
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.7s"></div>
+                <div class="btn item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.5s"></div>
+                <div class="btn item-tip3"></div>
+            </div>
+            <div class="btn item-banner"></div>
+            <div class="btn item-mask"></div>
+            <div class="btn item-award">
+                <input type="text" class="item-cdk-input" />
+                <span class="btn item-close"></span>
+            </div>
+            <div class="btn item-QR">
+                <span class="btn item-close"></span>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide-11">
+            <!-- <div class="item-block item-block1 animated" data-ani-name="slideInLeft" data-ani-duration="0.5s" data-ani-delay="0.5s">
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<button class="up-arrow">
+    <i class="icon-angle-double-up"></i>
+</button>
+<button class="btn-music">
+    <i class="icon-note"></i>
+</button>
+
+<audio loop autoplay="false">
+    <!-- <source src="audios/background.mp3" type="audio/mpeg"> -->
+</audio>
+
+<!-- Don't delete this. It's needed for development workflow. -->
+<!-- inject:js -->
+<!-- endinject -->
+
+</body>
+
+</html>

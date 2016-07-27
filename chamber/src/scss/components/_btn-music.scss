@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.btn-music {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    top: 3.6rem;
+    right: 1.5rem;
+    z-index: 1;
+    border: 0.125rem solid #fff;
+    border-radius: 50%;
+    outline: 0px solid red;
+    padding: 0;
+    display: inline;
+    background-image: url('../images/sound_on.png');
+    background-size: 100%;
+   /* animation: btnMusicAni 3s infinite linear;*/
+    i {
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 2rem;
+        color: #fff;
+        font-size: 1rem;
+        position: absolute;
+        top: -0.125rem;
+        left: -0.125rem;
+    }
+    &.paused {
+        opacity: 0.4;
+        background-image: ('../images/sound_off.png');
+        animation: none;
+    }
+}
+
+@keyframes btnMusicAni {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

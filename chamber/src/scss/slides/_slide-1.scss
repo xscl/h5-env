@@ -1,0 +1,125 @@
+.slide-1 {
+    background-color: #e88a63;
+    .scene {
+        height: 100%;
+    }
+    #wrapper {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        width: 100%;
+        background: #ccc;
+        height: 100%;
+        overflow: hidden;
+    }
+    .exist {
+        position: fixed;
+        right: 8%;
+        bottom: 3%;
+        display: block;
+        outline: 0px solid white;
+        width: 18%;
+        z-index: 2;
+        height: 10%;
+        display: none;
+        img {
+            width: 100%;
+        }
+    }
+    .right {
+        outline: 0px solid green;
+        position: absolute;
+    }
+    .wrong {
+        outline: 0px solid red;
+        position: absolute;
+    }
+    .pistol {
+        width: 5%;
+        height: 13.3%;
+        right: 20.5%;
+        top: 42%;
+    }
+    .slingshot {
+        width: 8%;
+        height: 9.3%;
+        right: 40.5%;
+        top: 23%;
+    }
+    .cartoon {
+        width: 10%;
+        height: 14%;
+        left: 28%;
+        top: 17%;
+    }
+    .homework {
+        width: 9.2%;
+        height: 11%;
+        left: 27%;
+        top: 50.3%;
+    }
+    .poster {
+        width: 14.4%;
+        height: 16%;
+        right: 22.6%;
+        top: 14%;
+    }
+    .tel {
+        width: 9.3%;
+        height: 14%;
+        left: 2%;
+        top: 42.5%;
+    }
+    .lamp {
+        width: 6%;
+        height: 15%;
+        right: 55.7%;
+        top: 35.6%;
+        outline: 0px solid #ff0000;
+    }
+    div.lamp {
+
+    }
+    img.lamp {
+        top: 45.2%;
+        height: 20%;
+        outline: 0px solid gold;
+        width: 16%;
+        right: 51.68%;
+        -webkit-animation-duration: 2.8s;
+        animation-duration: 2.8s;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+    }
+    .mobile {
+        width: 6%;
+        height: 9%;
+        right: 55.3%;
+        top: 59.5%;
+        transform: rotateZ(26deg) rotateY(40deg) rotateX(-60deg);
+    }
+    #scroller {
+        position: absolute;
+        z-index: 1;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        height: 100%;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        text-size-adjust: none;
+        .scene {
+            height: 100%;
+        }
+    }
+}

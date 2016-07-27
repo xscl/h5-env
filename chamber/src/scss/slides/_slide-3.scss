@@ -1,0 +1,70 @@
+.slide-3 {
+    background-color: #000000;
+    .bj {
+        width: 100%;
+    }
+    .bj-div {
+        position: absolute;
+        top: 10%;
+        left: 12%;
+        width: 76%;
+        .bj {
+            width: 100%;
+        }
+        div {
+            outline: 0px solid crimson;
+        }
+        .bj-div-img {
+            position: relative;
+            img {
+                width: 100%;
+            }
+            .key {
+                top : 47%;
+                width: 71%;
+                position: absolute;
+                height: 15%;
+                left: 15%;
+                text-align: center;
+                font-family: 微软雅黑;
+            }
+        }
+        .guo {
+            font-family: "微软雅黑", "黑体";
+            text-align: center;
+            color: white;
+            margin: -3% 0 3%;
+            font-size: 0.9rem;
+            line-height: 1.2rem;
+        }
+        .bj-div-div {
+            position: relative;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+            .again {
+                top : 4%;
+                width: 45%;
+                position: absolute;
+                height: 38%;
+                left: 0;
+            }
+            .unlock {
+                top : 4%;
+                width: 45%;
+                position: absolute;
+                height: 38%;
+                display: block;
+                right: 0;
+            }
+            .together {
+                top : 58%;
+                width: 45%;
+                position: absolute;
+                height: 38%;
+                left: 28%;
+            }
+        }
+    }
+}

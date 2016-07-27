@@ -1,0 +1,118 @@
+.slide-10 {
+    background: #feebc1;
+    .item-block1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #433630 url(http://static.leanote.top/x-resource/dzs/images/10/1.jpg) no-repeat;
+        background-size: 100% auto;
+        background-position: 0 center;
+        .item-tip1 {
+            z-index: 2;
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            left: 90px;
+            top: 50%;
+            background: url(http://static.leanote.top/x-resource/dzs/images/10/2.png) no-repeat;
+            background-size: 100% 100%;
+            transform: translate(0, 25px);
+        }
+        .item-tip2 {
+            z-index: 1;
+            position: absolute;
+            width: 103px;
+            height: 87px;
+            left: 106px;
+            bottom: 144px;
+            background: url(http://static.leanote.top/x-resource/dzs/images/10/3.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .item-tip3 {
+            z-index: 10;
+            position: absolute;
+            width: 110px;
+            height: 40px;
+            left: 105px;
+            top: 50%;
+            transform: translate(0, 160px);
+        }
+
+        .item-tip2.board-box-shake {
+            animation: board-box-shake 0.5s infinite linear;
+        }
+    }
+
+    .item-award {
+        display: none;
+        position: absolute;
+        left: 32px;
+        top: 83px;
+        width: 257px;
+        height: 310px;
+        background: url(http://static.leanote.top/x-resource/dzs/images/5/8.png) no-repeat;
+        background-size: 100% 100%;
+        z-index: 104;
+        .item-close {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 215px;
+            top: 150px;
+        }
+        .item-cdk-input {
+            position: absolute;
+            width: 189px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            left: 35px;
+            top: 204px;
+            background-color: rgba(0,0,0,0.01);
+            border: 0 none;
+            font-family: 'Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+        }
+    }
+
+    .item-mask {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 100;
+    }
+    .item-banner {
+        position: absolute;
+        width: 100%;
+        height: 10%;
+        left: 0;
+        top: 0;
+        background: url(http://static.leanote.top/x-resource/dzs/images/10/4.jpg) no-repeat;
+        background-size: 100% auto;
+        z-index: 101;
+    }
+
+    .item-QR {
+        display: none;
+        position: absolute;
+        left: 32px;
+        top: 100px;
+        width: 263px;
+        height: 294px;
+        background: url(http://static.leanote.top/x-resource/dzs/images/5/9.png) no-repeat;
+        background-size: 100% 100%;
+        z-index: 104;
+        .item-close {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            right: 0;
+            top: 0;
+        }
+    }
+}

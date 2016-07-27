@@ -1,0 +1,52 @@
+.slide-2 {
+    background-color: #000000;
+    .bj {
+        width: 100%;
+    }
+    .guo {
+        height: 100%;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
+    .p {
+        position: relative;
+        top: 25%;
+        margin:0 10%;
+        width: 80%;
+        .p-p {
+            width: 100%;
+        }
+    }
+    .password {
+        position: absolute;
+        width: 70%;
+        height: 9.8%;
+        top: 35%;
+        left: 15.4%;
+        text-transform:uppercase;
+        text-align: center;
+        ime-mode:disabled;
+    }
+    .ok {
+        position: absolute;
+        width: 45%;
+        top: 68%;
+        left: 29%;
+        height: 10%;
+        pointer-events: auto;
+        outline: 0px solid red;
+        z-index: 200;
+    }
+    .try {
+        position: absolute;
+        width: 40%;
+        top: 48%;
+        display: none;
+        left: 30%;
+        outline: 0px solid red;
+        text-align: center;
+        font-family: 微软雅黑;
+        font-size: 22px;
+        color: white;
+    }
+}

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+.loading-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 99;
+    .col {
+        width: 45%;
+        margin: auto;
+        position: relative;
+        height: 100%;
+    }
+    .projector {
+        position: absolute;
+        top: 25%;
+        width: 100%;
+        display: block;
+    }
+    .word {
+        width: 100%;
+        position: absolute;
+        bottom: 25%;
+        display: block;
+    }
+    .machine {
+        display: block;
+        width: 100%;
+    }
+    .light {
+        position: absolute;
+        top: -125%;
+        left: -26%;
+        -webkit-animation-duration: 2.8s;
+        animation-duration: 2.8s;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        width: 180%;
+    }
+    .progress {
+        position: absolute;
+        color: white;
+        width: 100%;
+        margin: 20% auto;
+        text-align: center;
+        font-size: 25px;
+    }
+}
+.my-animated {
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.my-animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+@media all and (orientation: landscape) {
+    /*　　这是匹配横屏的状态，横屏时的css代码　　*/
+    .loading-overlay {
+        .projector {
+            top: 0%;
+        }
+        .progress {
+            font-size: 35px;
+            margin: 5% auto;
+        }
+        .word {
+            bottom: 0%;
+        }
+    }
+}
