@@ -9,30 +9,29 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <script>
-        // ejs
         var lastTime = 0;
-        var prefixes = 'webkit moz ms o'.split(' '); //各浏览器前缀
+        // var prefixes = 'webkit moz ms o'.split(' '); //各浏览器前缀
 
-        var requestAnimationFrame = window.requestAnimationFrame;
-        var cancelAnimationFrame = window.cancelAnimationFrame;
+        // var requestAnimationFrame = window.requestAnimationFrame;
+        // var cancelAnimationFrame = window.cancelAnimationFrame;
 
-        var prefix;
-        //通过遍历各浏览器前缀，来得到requestAnimationFrame和cancelAnimationFrame在当前浏览器的实现形式
-        for( var i = 0; i < prefixes.length; i++ ) {
-            if ( requestAnimationFrame && cancelAnimationFrame ) {
-                break;
-            }
-            prefix = prefixes[i];
-            requestAnimationFrame = requestAnimationFrame || window[ prefix + 'RequestAnimationFrame' ];
-            cancelAnimationFrame  = cancelAnimationFrame  || window[ prefix + 'CancelAnimationFrame' ] || window[ prefix + 'CancelRequestAnimationFrame' ];
-        }
+        // var prefix;
+        // //通过遍历各浏览器前缀，来得到requestAnimationFrame和cancelAnimationFrame在当前浏览器的实现形式
+        // for( var i = 0; i < prefixes.length; i++ ) {
+        //     if ( requestAnimationFrame && cancelAnimationFrame ) {
+        //         break;
+        //     }
+        //     prefix = prefixes[i];
+        //     requestAnimationFrame = requestAnimationFrame || window[ prefix + 'RequestAnimationFrame' ];
+        //     cancelAnimationFrame  = cancelAnimationFrame  || window[ prefix + 'CancelAnimationFrame' ] || window[ prefix + 'CancelRequestAnimationFrame' ];
+        // }
 
         //如果当前浏览器不支持requestAnimationFrame和cancelAnimationFrame，则会退到setTimeout
-        if ( !requestAnimationFrame || !cancelAnimationFrame ) {
-            requestAnimationFrame = function( callback, element ) {
+        // if ( !requestAnimationFrame || !cancelAnimationFrame ) {
+            mixRequestAnimationFrame = function( callback, element ) {
                 var currTime = new Date().getTime();
                 //为了使setTimteout的尽可能的接近每秒60帧的效果
-                var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+                var timeToCall = Math.max( 0, 8 - ( currTime - lastTime ) );
                 var id = window.setTimeout( function() {
                     callback( currTime + timeToCall );
                 }, timeToCall );
@@ -40,10 +39,10 @@
                 return id;
             };
 
-            cancelAnimationFrame = function( id ) {
+            mixCancelAnimationFrame = function( id ) {
                 window.clearTimeout( id );
             };
-        }
+        // }
 
         // test
         /*requestAnimationFrame = function( callback, element ) {
@@ -68,7 +67,7 @@
     <link rel="shortcut icon" type="image/png" href="http://static.leanote.top/x-resource/dzs/images/share_logo.jpg"/>
 
     <!-- Don't delete this. It's needed for development workflow. -->
-    <link rel="stylesheet" href="http://static.leanote.top/x-resource/dzs/stylesheets/bundle.min.css?v=104">
+    <link rel="stylesheet" href="http://static.leanote.top/x-resource/dzs/stylesheets/bundle.min.css?v=110">
 
     <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
@@ -82,7 +81,6 @@
 </head>
 
 <body>
-
 <img src="http://static.leanote.top/x-resource/dzs/images/share_logo.jpg" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
 <img src="http://static.leanote.top/x-resource/dzs/images/loading/1.png" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
 <img src="http://static.leanote.top/x-resource/dzs/images/loading/2.png" style="width:0;height:0;position:absolute;left:-1000px;top:-1000px;" />
@@ -290,9 +288,10 @@
 
         <div class="swiper-slide slide-10">
             <div class="item-block item-block1 animated" data-ani-name="fadeIn" data-ani-duration="0.5s" data-ani-delay="0s">
-                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="0.7s"></div>
-                <div class="btn item-tip2 animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.5s"></div>
+                <div class="item-tip1 animated" data-ani-name="zoomIn" data-ani-duration="0.5s" data-ani-delay="1.7s"></div>
+                <div class="btn item-tip2 animated" data-ani-name="wobble" data-ani-duration="1s" data-ani-delay="0.5s"></div>
                 <div class="btn item-tip3"></div>
+                <div class="btn item-tip4"></div>
             </div>
             <div class="btn item-banner"></div>
             <div class="btn item-mask"></div>
@@ -301,6 +300,7 @@
                 <span class="btn item-close"></span>
             </div>
             <div class="btn item-QR">
+                <img src="http://static.leanote.top/x-resource/dzs/images/5/9.png" alt="" />
                 <span class="btn item-close"></span>
             </div>
         </div>
@@ -316,15 +316,22 @@
     <i class="icon-angle-double-up"></i>
 </button>
 <button class="btn-music">
-    <i class="icon-note"></i>
+    <i class="music-note"></i>
+    <i class="music-go"></i>
 </button>
 
 <audio loop autoplay="false">
-    <!-- <source src="audios/background.mp3" type="audio/mpeg"> -->
+    <source src="audios/background.mp3" type="audio/mpeg">
 </audio>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259994594'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259994594' type='text/javascript'%3E%3C/script%3E"));
+    //声明_czc对象:
+    window._czc = _czc || [];
+    //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+    window._czc.push(["_setAccount", "cnzz_stat_icon_1259994594"]);
+</script>
 
 <!-- Don't delete this. It's needed for development workflow. -->
-<script src="http://static.leanote.top/x-resource/dzs/javascripts/bundle.min.js?v=104"></script>
+<script src="http://static.leanote.top/x-resource/dzs/javascripts/bundle.min.js?v=114"></script>
 
 </body>
 
